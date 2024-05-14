@@ -81,7 +81,7 @@ class SantanderUKQIFParser(StatementParser):
         if not memo:
             return None
         split_memo = memo.split(" , ")
-        if len(split_memo) < 1:
+        if len(split_memo) < 2:
             return None
         return html.unescape(split_memo[0].strip())
 
