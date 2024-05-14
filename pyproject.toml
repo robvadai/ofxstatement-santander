@@ -1,0 +1,44 @@
+[project]
+name = "ofxstatement-santander"
+version = "0.1.0+0"
+authors = [
+    {name = "R Vadai", email = "rvadai@segence.com"},
+]
+description = "ofxstatement plugin to handle Santander transaction files"
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "License :: OSI Approved :: MIT License",
+    "Natural Language :: English",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+]
+dependencies = [
+    "quiffen==2.0.10",
+]
+[project.optional-dependencies]
+dev = [
+    "ofxstatement==0.9.1",
+    "pytest==8.2.0",
+    "pytest-cov==5.0.0",
+    "prospector==1.10.3",
+    "bandit==1.7.8",
+    "setuptools==69.5.1",
+    "build==1.2.1",
+    "black==24.4.2"
+]
+[project.urls]
+repository = "https://github.com/robvadai/ofxstatement-santander"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+exclude = ["test*"]
+
+[tool.pytest.ini_options]
+addopts = "--strict-markers"
+markers = [
+    "integration: marks tests as integration tests",
+]
