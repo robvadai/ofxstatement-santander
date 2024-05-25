@@ -1,4 +1,4 @@
-from ..ofxstatement.plugins.santander_uk_qif import SantanderUKQIFParser
+from ..ofxstatement_santander.santander_uk_qif import SantanderUKQIFParser
 from quiffen.core.account import AccountType
 
 other_transaction_type = "OTHER"

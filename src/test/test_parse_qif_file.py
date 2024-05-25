@@ -6,7 +6,7 @@ import pytest
 
 from ofxstatement.ui import UI
 
-from ..ofxstatement.plugins.santander_uk_qif import SantanderUKQIFPlugin
+from ..ofxstatement_santander.santander_uk_qif import SantanderUKQIFPlugin
 
 QIF_FILE_CONTENT = """!Type:Oth L
 D30/03/2024

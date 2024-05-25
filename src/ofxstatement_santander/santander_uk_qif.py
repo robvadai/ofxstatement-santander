@@ -7,7 +7,7 @@ from ofxstatement.parser import StatementParser
 from ofxstatement.plugin import Plugin
 from ofxstatement.statement import StatementLine, generate_transaction_id, Currency
 
-from ofxstatement.plugins.qif import QIFParser
+from ofxstatement_qif.plugin import QIFParser
 
 logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger("SantanderUKQIF")
