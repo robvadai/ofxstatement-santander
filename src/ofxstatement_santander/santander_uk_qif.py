@@ -2,6 +2,7 @@ import logging
 from decimal import Decimal
 from typing import Dict, Optional, Iterable, Tuple
 import html
+import re
 
 from ofxstatement.parser import StatementParser
 from ofxstatement.plugin import Plugin
@@ -80,7 +81,7 @@ class SantanderUKQIFParser(StatementParser):
     def get_transaction_memo(memo: Optional[str]) -> Optional[str]:
         if not memo:
             return None
-        split_memo = memo.split(" , ")
+        split_memo = re.split(r" , \d(.*)", memo)
         if len(split_memo) < 2:
             return None
         return html.unescape(split_memo[0].strip())

@@ -20,6 +20,14 @@ PFOREIGN CURRENCY CONVERSION FEE                                                
 D10/03/2024
 T1200.00
 PFASTER PAYMENTS RECEIPT                                                                   , 1200.00
+^
+D27/02/2024
+T-1000.00
+PBILL PAYMENT VIA FASTER PAYMENT , MANDATE NO 94                                           , 1000.00
+^
+D15/02/2024
+T-120.00
+PDIRECT DEBIT PAYMENT TO TAX, MANDATE NO 0011                                              , 120.00
 ^"""
 
 EXPECTED_CURRENCY_USD = "USD"
@@ -37,7 +45,7 @@ def test_parse_qif_file():
         parser = plugin.get_parser(fp.name)
         statement = parser.parse()
 
-        assert len(statement.lines) == 3
+        assert len(statement.lines) == 5
 
         first_line = statement.lines[0]
         assert first_line.date == datetime(2024, 3, 30)
@@ -65,3 +73,21 @@ def test_parse_qif_file():
         assert third_line.currency.symbol == EXPECTED_CURRENCY_USD
         assert third_line.payee is None
         assert third_line.memo == "FASTER PAYMENTS RECEIPT"
+
+        fourth_line = statement.lines[3]
+        assert fourth_line.date == datetime(2024, 2, 27)
+        assert fourth_line.date_user == datetime(2024, 2, 27)
+        assert fourth_line.amount == Decimal(-1000)
+        assert fourth_line.trntype == "DEBIT"
+        assert fourth_line.currency.symbol == EXPECTED_CURRENCY_USD
+        assert fourth_line.payee is None
+        assert fourth_line.memo == "BILL PAYMENT VIA FASTER PAYMENT , MANDATE NO 94"
+
+        fifth_line = statement.lines[4]
+        assert fifth_line.date == datetime(2024, 2, 15)
+        assert fifth_line.date_user == datetime(2024, 2, 15)
+        assert fifth_line.amount == Decimal(-120)
+        assert fifth_line.trntype == "DEBIT"
+        assert fifth_line.currency.symbol == EXPECTED_CURRENCY_USD
+        assert fifth_line.payee is None
+        assert fifth_line.memo == "DIRECT DEBIT PAYMENT TO TAX, MANDATE NO 0011"
