@@ -15,16 +15,26 @@ At the moment it only supports converting [Quicken Interchange Format (QIF)](htt
 
 This plugin also installs the [OFX Statement QIF plugin](https://github.com/robvadai/ofxstatement-qif), because it relies on its functionality.
 
+## Installation
+
+```shell
+pip install ofxstatement-santander
+```
+
 ## Usage
+
 ```shell
-$ ofxstatement convert -t santander-uk-qif transactions.qif transactions.ofx
+ofxstatement convert -t santander-uk-qif transactions.qif transactions.ofx
 ```
+
 ## Configuration
+
 ```shell
-$ ofxstatement edit-config
+ofxstatement edit-config
 ```
+
 And enter e.g. this:
-```
+```ini
 [santander-uk-qif]
 plugin = santander-uk-qif
 currency = GBP
