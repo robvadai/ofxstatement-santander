@@ -1,12 +1,11 @@
 import logging
-from decimal import Decimal
-from typing import Dict, Optional, Iterable, Tuple
+from typing import Optional, Iterable, Tuple
 import html
 import re
 
 from ofxstatement.parser import StatementParser
 from ofxstatement.plugin import Plugin
-from ofxstatement.statement import StatementLine, generate_transaction_id, Currency
+from ofxstatement.statement import StatementLine, Currency
 
 from ofxstatement_qif.plugin import QIFParser
 
