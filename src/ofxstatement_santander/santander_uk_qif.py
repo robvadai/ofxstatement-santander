@@ -1,11 +1,11 @@
 import logging
-from typing import Optional, Iterable, Tuple
+from typing import Optional, Iterable
 import html
 import re
 
 from ofxstatement.parser import StatementParser
 from ofxstatement.plugin import Plugin
-from ofxstatement.statement import StatementLine, Currency
+from ofxstatement.statement import StatementLine
 
 from ofxstatement_qif.plugin import QIFParser
 
