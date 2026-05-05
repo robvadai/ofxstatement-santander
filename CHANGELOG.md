@@ -2,6 +2,12 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## v0.11.0 - 2026-05-05
+#### Features
+- Using cocogitto (#4) - (d5fc481) - Rob Vadai
+
+- - -
+
 ## v0.10.0 - 2026-05-05
 #### Features
 - Using cocogitto (#3) - (80e7088) - Rob Vadai
